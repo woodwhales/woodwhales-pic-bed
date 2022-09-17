@@ -1,0 +1,20 @@
+server:
+  address: 0.0.0.0
+  port: 10010
+
+spring:
+  application:
+    name: woodwhales-pic-bed
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/woodwhales_pic_bed?serverTimezone=Asia/Shanghai&useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root1234
+
+system:
+  author: https://woodwhales.cn
+  filePath: /data/woodwhales-pic-bed
