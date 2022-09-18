@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tika.Tika;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * @author woodwhales on 2022-09-18 0:11
@@ -15,12 +16,13 @@ public class FileTool {
 
     /**
      * 是否为图片文件
+     *
      * @param file
      * @return
      */
     public static OpResult<String> belongImageMime(File file) {
         OpResult<String> opResult = fileMime(file);
-        if(opResult.isFailure()) {
+        if (opResult.isFailure()) {
             return opResult;
         }
         if (StringUtils.contains(opResult.getData(), "image/")) {
@@ -32,6 +34,7 @@ public class FileTool {
 
     /**
      * 获取文件的MIME
+     *
      * @param file
      * @return
      */
@@ -44,6 +47,24 @@ public class FileTool {
             log.warn("文件失败MIME失败");
             return OpResult.failure();
         }
+    }
+
+    /**
+     * 获取文件的MIME
+     *
+     * @param inputStream
+     * @return
+     */
+    public static OpResult<String> fileMime(InputStream inputStream) {
+        Tika tika = new Tika();
+        try {
+            String fileType = tika.detect(inputStream);
+            return OpResult.success(fileType);
+        } catch (Exception e) {
+            log.warn("文件失败MIME失败");
+            return OpResult.failure();
+        }
+
     }
 
 }

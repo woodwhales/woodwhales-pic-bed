@@ -6,6 +6,7 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,5 +50,14 @@ public class FileToolTest {
         System.out.println(fileMime);
         assertEquals("application/java-vm", fileMime);
     }
+
+    @Test
+    public void test5() {
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("Hello.class");
+        String fileMime = FileTool.fileMime(inputStream).getData();
+        System.out.println(fileMime);
+        assertEquals("application/java-vm", fileMime);
+    }
+
 
 }
