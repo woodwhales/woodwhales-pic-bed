@@ -1,7 +1,8 @@
 server:
   address: 0.0.0.0
   port: 10010
-
+  tomcat:
+    basedir: /data/woodwhales_pic_bed/temp
 spring:
   application:
     name: woodwhales-pic-bed
@@ -16,5 +17,6 @@ spring:
     password: root1234
 
 system:
+  site: http://127.0.0.1:10010
   author: https://woodwhales.cn
   filePath: /data/woodwhales-pic-bed

@@ -1,4 +1,4 @@
-package cn.woodwhales.pic.model;
+package cn.woodwhales.pic.model.param;
 
 import lombok.Data;
 
@@ -6,6 +6,6 @@ import lombok.Data;
  * @author woodwhales on 2022-09-17 23:36
  */
 @Data
-public class UploadParam {
+public class UploadFileParam {
 
 }

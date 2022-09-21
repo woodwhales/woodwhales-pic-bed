@@ -3,16 +3,25 @@ package cn.woodwhales.pic.util;
 import cn.woodwhales.common.model.result.OpResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.tika.Tika;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Date;
 
 /**
  * @author woodwhales on 2022-09-18 0:11
  */
 @Slf4j
 public class FileTool {
+
+    /**
+     * 获取年月日路径
+     */
+    public static String getBaseFilePath() {
+        return "/" + DateFormatUtils.format(new Date(), "yyyy/MM/dd") + "/";
+    }
 
     /**
      * 是否为图片文件
